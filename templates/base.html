@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="https://res.cloudinary.com/dscoft3v6/raw/upload/v1686325716/static/css/style.2a1629c4b38e.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
@@ -26,7 +26,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><i class="fa-solid fa-film"></i><span class="brand"> My Film Blog<span
+            <a class="navbar-brand" href="{% url 'home' %}"><i class="fa-solid fa-film"></i><span class="brand"> The Film Blog<span
                         class="thin"> |</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
                     {% endif %}
                 </ul>
                 <span class="navbar-text text-muted">
-                    My take on the latest movie releases
+                    Your take on the latest movie releases
                 </span>
             </div>
         </div>
