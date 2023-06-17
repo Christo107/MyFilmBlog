@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 from cloudinary.models import CloudinaryField
 
 
@@ -20,6 +21,12 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
+# score model based on pyplane https://www.youtube.com/watch?v=iz1GB_q5txM
+    score = models.IntegerField(default=0)
+    validators = [
+        MinValueValidator(0),
+        MaxValueValidator(5),
+        ]
 
     class Meta:
         ordering = ["-created_on"]
