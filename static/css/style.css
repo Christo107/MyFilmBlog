@@ -106,6 +106,10 @@ body {
     color: lightgray;
 }
 
+.star-rating {
+    margin-left: 5%;
+}
+
 .btn-signup {
     background-color: #23BBBB;
     color: #fff;
