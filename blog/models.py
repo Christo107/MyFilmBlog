@@ -52,3 +52,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class Actors(models.Model):
+    # fields for actor table
+    name = models.CharField(max_length=80)
+    birthday = models.DateField()
+    featured_image = CloudinaryField('image', default='placeholder')
+
+    def __str__(self):
+        return self.name
