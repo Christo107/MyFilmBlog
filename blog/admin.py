@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Actors
+from .models import Post, Comment, Actor
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -25,7 +25,7 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-@admin.register(Actors)
-class ActorsAdmin(admin.ModelAdmin):
+@admin.register(Actor)
+class ActorAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'birthday')
