@@ -5,6 +5,7 @@
 
 <head>
     <title>My Film Blog</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <script src="https://kit.fontawesome.com/8e7a08758e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -53,6 +54,10 @@
                     </li>
                     {% endif %}
                 </ul>
+                <form class="form-inline my-2 my-lg-0" method="GET">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
                 <span class="navbar-text text-muted">
                     My take on the latest movie releases
                 </span>
