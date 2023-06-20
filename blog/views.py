@@ -81,6 +81,6 @@ class PostLike(View):
 
 class ActorList(generic.ListView):
     model = Actor
-    queryset = Actor.objects.all().order_by('name').values()
+    queryset = Actor.objects.all().order_by('name')
     template_name = "actor_list.html"
     paginate_by = 12
