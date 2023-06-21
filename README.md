@@ -77,6 +77,12 @@ The live website on Github can be accessed at the following link: [View my Live 
 
 ![Film Review Detail Image top](./media/images/film_review_detail_pt1.jpg)
 ![Film Review Detail Image bottom](./media/images/film_review_detail_pt2.jpg)
+
+- #### Register Page
+![Register Page Image](./media/images/signup_page.jpg)
+
+- #### Login Page
+![Login Page Image](./media/images/login_page.jpg)
     
 - #### **Footer**
     - At the bottom of the pages, there is a footer containing the developer's name and a link to the gitHub profile of the developer, in case someone wished to contact the developer or view other projects by them.
@@ -180,18 +186,28 @@ The live website on Github can be accessed at the following link: [View my Live 
 ## Testing
 The website was tested for markup and CSS validation along with javascript, responsive design and accessibility using multiple browsers including Chrome, EDGE, and Firefox.
 Please see screenshots of the results below:
-- [W3C Markup Result]() 
-- [W3C CSS Validator Result]()
+- [W3C Markup Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmyfilmblog.herokuapp.com%2F) 
+- [W3C CSS Validator Result](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmyfilmblog.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ### Validator Testing
 - HTML
     - Before final deployment, no errors were returned when passing through the offical W3C Validator
+- [W3C Validator HTML](./media/images/w3c_homepage_initial_results.jpg)
+- [W3C Validator HTML](./media/images/w3c_homepage_follow_up_results.jpg)
 - CSS
     - Before final deployment, no errors were found when passing through the official W3C Jigsaw CSS Validator
+- [W3C Validator CSS](./media/images/w3c_homepage_css_results.jpg)
 - Javascript
     - The javascript code was run through jshint to check for any errors. No errors were identified.
 - Python
     - The python code was run through Pep8 to check for errors. It passed with no errors
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_admin.py.jpg)
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_blogurls.py.jpg)
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_filmblogurls.py.jpg)
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_manage.py.jpg)
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_models.py.jpg)
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_settings.py.jpg)
+- [PEP8 result](./media/images/pep8%20results/pep8%20linter_views.py.jpg)
 
 ### Responsiveness Testing
 - The website was tested for responsiveness using the Chrome and Firefox browsers and their associated Developer Tools. 
