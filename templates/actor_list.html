@@ -22,7 +22,7 @@
                                 <img class="card-img-cover img-fluid" src=" {{ actor.featured_image.url }}">
                                 {% endif %}
                             </div>
-                            <a href="{% url 'actor_detail' actor.slug %}" class="post-link">
+                            <a href="{% url 'actor_detail' actor.id %}" class="post-link">
                                 <h3 class="card-title">{{ actor.name }}</h3>
                             </a>
                             <hr />

@@ -58,7 +58,7 @@ class Comment(models.Model):
 class Actor(models.Model):
     # fields for actor table
     name = models.CharField(max_length=80)
-    slug = models.SlugField(max_length=200, blank=True)
+    slug = models.SlugField(max_length=200, blank=True, unique=True)
     birthday = models.DateField()
     featured_image = CloudinaryField('image', default='placeholder')
     films = models.ManyToManyField(Post)

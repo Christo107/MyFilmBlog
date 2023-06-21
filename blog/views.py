@@ -88,14 +88,26 @@ class ActorList(generic.ListView):
 
 class ActorDetail(View):
 
-    def get(self, request, slug,  *args, **kwargs):
-        queryset = Post.objects.all
-        actor = get_object_or_404(queryset, slug=slug)
+    def get(self, request, id,  *args, **kwargs):
+        queryset = Actor.objects.all()
+        actor = get_object_or_404(queryset, id=id)
 
         return render(
             request,
             "actor_detail.html",
             {
-                "actor": name,
+                "actor": actor,
+            },
+        )
+
+    def post(self, request, id,  *args, **kwargs):
+        queryset = Actor.objects.all()
+        actor = get_object_or_404(queryset, id=id)
+
+        return render(
+            request,
+            "actor_detail.html",
+            {
+                "actor": actor,
             },
         )
