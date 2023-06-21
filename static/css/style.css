@@ -67,6 +67,15 @@ body {
     width: 100%;
 }
 
+.masthead-tall {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 75vh;
+    width: 100%;
+}
+
 .masthead-text {
     background-color:#23BBBB;
     color: white;
