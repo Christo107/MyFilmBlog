@@ -1,108 +1,226 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# My Film blog
+This website was designed and developed as a film review blog where reviews of the latest films could be posted, with site users able to read the reviews, and registered site users able to comment and click like on the reviews. This allows users to engage with other users in a conversation on the films being reviewed.
 
-Welcome Christo107,
+The website has a simple layout with a homepage containing a list of the latest reviews.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Responsive Mockup](./media/images)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The live website on Github pages can be accessed at the following link: [View my Live Website on Github Pages here](https://github.com/Christo107/MyFilmBlog)
 
-## Gitpod Reminders
+## CONTENTS
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* [Introduction](#my-film-blog)
 
-`python3 -m http.server`
+* [Sections and Pages](#sections-and-pages)
+    *  [Header](#header-and-navbar)
+    *  [Film Review list](#film-review-list)
+    *  [Film Review Detail](#film-review-detail)
+    *  [Register Page](#register-page)
+    *  [Login Page](#login-page)
+    *  [Footer](#footer)
+    *  [Admin](#admin)   
+* [User Experience](#user-experience)
+    *  [User Stories](#user-stories)
+* [Design](#design)
+    *  [Colour Palette](#colour-palette)
+    *  [Typography](#typography)
+    *  [Imagery](#imagery)
+    *  [Wireframes](#wireframes)
+    *  [Accessibility](#accessibility)
+* [Technologies Used](#technologies-used)   
+    *  [Languages Used](#languages-used)
+    *  [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
+* [Testing](#testing)
+    * [Validator Testing](#validator-testing)
+    * [Responsiveness Testing](#responsiveness-testing)
+    * [Accessibility Testing](#accessibility-testing)
+    * [User Story Testing](#user-story-testing)
+* [Bugs](#Bugs)
+* [Deployment](#deployment)
+* [Credits](#credits)
+* [Acknowledgements](#acknowledgements)
 
-A blue button should appear to click: _Make Public_,
+## Sections and Pages
 
-Another blue button should appear to click: _Open Browser_.
+### Existing Sections
+- #### **Header**
+    - The header contains the name of the website along with a logo of a section of film strip.
+    - Alongside this on the left of the page, a link for Home, Actors, Register and Login are also present
+    - On the far-right, a tag-line description of what purpose the website serves is shown reading "My take on the latest moview release"
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Header Image](./media/images/header.jpg)
 
-A blue button should appear to click: _Make Public_,
+- #### **Film Review List**
+    - This section contains the main elements of the homepage, namely a grid of the film reviews currently published on the website.
+    - The Film review list is is displayed in a grid format, with 3 columns and 2 rows. The film reviews are paginated once they reach 6 on the page.
+    - Each card shows an image of the film review, the title, the star rating, cast members, author of the review, date of publication, an excerpt, number of likes
 
-Another blue button should appear to click: _Open Browser_.
+![Film Review List Image](./media/images/homepage.jpg)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- #### **Film Review Detail**
+    - When a user clicks on the title or excerpt of a particular review, they are brought to the Review Detail page.
+    - This page contains more information of the review including
+        - Featured Image
+        - Title
+        - Cast
+        - Star Rating
+        - Author
+        - Date and Time of publication
+        - Review text content
+        - YouTube link to trailer
+        - Number of Likes
+        - Number of comments
+        - Comment Form (for registered users only)
+        - Comments (displayed oldest to newest)
 
-To log into the Heroku toolbelt CLI:
+![Film Review Detail Image top](./media/images/film_review_detail_pt1.jpg)
+![Film Review Detail Image bottom](./media/images/film_review_detail_pt2.jpg)
+    
+- #### **Footer**
+    - At the bottom of the pages, there is a footer containing the developer's name and a link to the gitHub profile of the developer, in case someone wished to contact the developer or view other projects by them.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![Footer section image](./media/images/footer.jpg)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Future Features
 
-------
+- #### Search Field
+    - I would like to add a search function so that site users can easily find reviews of films they are interested in.
 
-## Release History
+- #### Actor Reviews
+    - Breakdown of reviews based on specific actors. This would show all the reviews on the website that contain a specific actor as part of the cast.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- #### Social account Registration
+    - Register an account with a user's social account for ease of signup and integration.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- #### Cinema Listings
+    - Link to local cinema listings where users can find out where to watch the film in the current review.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- #### Previous comments
+    - Profile page information showing all previous commented reviews by a particular user.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## User Experience
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### User Stories
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Client Goals
+- To have an accessible, responsive website that is easy to navigate and encourages users to engage with the content contained within.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#### User Goals
+- As a User 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Design
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Colour Palette
+- 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![Colour palette for the website](./)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Typography
+- 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Imagery
+- 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
 
-## FAQ about the uptime script
+### Wireframes
+- I designed the website firstly through hand drawn sketches that were then turned into basic wireframes on Figma, before being made into high fidelity wireframes.
 
-**Why have you added this script?**
+- [Desktop Wireframe](./)
+- [Tablet Wireframe](./)
+- [Mobile Wireframe](./)
+- [Desktop High Fidelity Wireframe](./media/images/)
+- [Tablet High Fidelity Wireframe](./)
+- [Mobile High Fidelity Wireframe](./)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Accessibility
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Technologies used
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Languages used
+- HTML5
+- CSS3
+- Javascript
+- Python
 
-**So….?**
+### Frameworks, Libraries and Programs used
+- [GitHub](https://github.com)
+- [Gitpod](https://gitpod.io/workspaces)
+- [Figma](https://www.figma.com/)
+- [Optimizilla Image Compressor](https://imagecompressor.com)
+- [Fontawesome](https://fontawesome.com/)
+- [Am I Responsive](http://ami.responsivedesign.is/)
+- [Coolers.co](https://coolors.co)
+- [Chrome Dev Tools](https://www.google.com/intl/en_ie/chrome/)
+- [A11y color contrast validator](https://color.a11y.com/Contrast/)
+- [Favicon.io](https://favicon.io/)
+- [Django]
+- [Cloudinary]
+- [Bootstrap]
+- [Heroku]
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Testing
+The website was tested for markup and CSS validation along with javascript, responsive design and accessibility using multiple browsers including Chrome, EDGE, and Firefox.
+Please see screenshots of the results below:
+- [W3C Markup Result]() 
+- [W3C CSS Validator Result]()
 
-**Can I opt out?**
+### Validator Testing
+- HTML
+    - Before final deployment, no errors were returned when passing through the offical W3C Validator
+- CSS
+    - Before final deployment, no errors were found when passing through the official W3C Jigsaw CSS Validator
+- Javascript
+    - The javascript code was run through jshint to check for any errors. No errors were identified.
+- Python
+    - The python code was run through Pep8 to check for errors. It passed with no errors
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Responsiveness Testing
+- The website was tested for responsiveness using the Chrome and Firefox browsers and their associated Developer Tools. 
+#### Chrome
+- A variety of screen sizes were checked for responsiveness using the Developer tools from 4K displays at 2560px wide, laptop sizes 1440px and 1024px, tablets at 768px, and a variety of mobile sizes down to 320px width. All elements maintained functionality and visibility in all scenarios, however, there were some issues with mobile landscape being able to fit all the componenets on the screen at the same time(see fixed bugs section below). Real world testing was also conducted on physical devices of various sizes to ensure integrity. No issue was encountered on these apart from the mobile landscape issue.
+- A Lighthouse report was run several times to gauge the performance, accessibility, best practice and SEO scores. 
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+ - ![Lighthouse scoring Desktop](./media/images/)
+ - ![Lighthouse scoring Mobile](./media/images/)
 
-**Anything more?**
+### Accessibility Testing
+- Multiple tests were run on the website using Lighthouse and A11y Color Contrast Accessibility Validator to examine any accessibility issues. https://color.a11y.com/
+#### Firefox
+- Firefox's built in colour blindness simulator was used to identify any areas where sufficient colour contrast was not present. No such areas were found.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### User Story Testing
 
----
 
-Happy coding!
+## Deployment
+I used Gitpod to develop the website and the site was deployed using Heroku.
+
+- The steps to deploy are as follows: 
+
+The live link can be found here - https://
+
+## Bugs
+### Fixed Bugs
+
+### Known Bugs
+
+## Credits
+
+### Code
+
+
+### Content
+
+- The text content of the website was taken from the Empire Film Review website here : (https://www.empireonline.com/movies/reviews/)
+- The social media icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+
+### Media
+
+
+
+## Acknowledgements
+ - The CI students who peer reviewed my website and gave feedback

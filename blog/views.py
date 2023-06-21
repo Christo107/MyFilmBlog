@@ -96,6 +96,6 @@ class ActorDetail(View):
             request,
             "actor_detail.html",
             {
-                "actor": actor,
+                "actor": name,
             },
         )
