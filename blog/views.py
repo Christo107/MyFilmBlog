@@ -84,3 +84,18 @@ class ActorList(generic.ListView):
     queryset = Actor.objects.all().order_by('name')
     template_name = "actor_list.html"
     paginate_by = 12
+
+
+class ActorDetail(View):
+
+    def get(self, request, slug,  *args, **kwargs):
+        queryset = Post.objects
+        actor = get_object_or_404(queryset, slug=slug)
+
+        return render(
+            request,
+            "actor_detail.html",
+            {
+                "actor": actor,
+            },
+        )

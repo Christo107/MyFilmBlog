@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Actor name goes in these h1 tags -->
+                <h1 class="post-title">{{ actor.name }}</h1>
+                <p class="card-text">Birthday: {{ actor.birthday }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                <!-- The featured image URL goes in the src attribute -->
+                {% if "placeholder" in actor.featured_image.url %}
+                <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg" width="100%">
+                {% else %}
+                <img src=" {{ actor.featured_image.url }}" width="100%">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <!-- The post content goes inside the card-text. -->
+                <!-- Use the | safe filter inside the template tags -->
+                <p class="card-text ">
+                    {{ actor.films | safe }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock content %}
