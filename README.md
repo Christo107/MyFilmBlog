@@ -1,7 +1,7 @@
 # My Film blog
 This website was designed and developed as a film review blog where reviews of the latest films could be posted, with site users able to read the reviews, and registered site users able to comment and click like on the reviews. This allows users to engage with other users in a conversation on the films being reviewed.
 
-The website has a simple layout with a homepage containing a list of the latest reviews.
+The website has a simple layout with a homepage containing a list of the latest reviews, along with an actors biography section.
 
 ![Responsive Mockup](./media/images)
 
@@ -106,36 +106,48 @@ The live website on Github pages can be accessed at the following link: [View my
 - To have an accessible, responsive website that is easy to navigate and encourages users to engage with the content contained within.
 
 #### User Goals
-- As a User 
+
+##### Delivered features
+- As a site user I can login to my registered account so that access the comment and like functionality
+- As a site user I can logout of my registered account so that I can **keep my account safe from other users
+- As a Site Admin I can create, read, update and delete posts so that I can manage my blog content
+- As a Site Admin I can create draft posts so that I can finish writing the content later
+- As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments
+- As a Site User I can view a list of posts so that I can select one to read
+- As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular
+- As a Site User I can view a paginated list of posts so that easily select a post to view
+- As a Site User I can click on a post so that I can read the full text
+- As a Site User I can register an account so that I can add posts, comment and like existing posts
+- As a Site User / Admin I can view comments on an individual post so that I can read the replies to a post
+- As a Site User I can leave comments on a post so that I can engage with other users
+- As a Site User I can like or unlike a post so that I can interact with the content
+
+##### Non-Delivered features
+- As a Site User I can login to my profile so that I can view all my previously created posts
+- As a site user I can bookmark a review so that I can revisit the post at a later date
+- As a site user I can filter the reviews so that I can view only specific reviews based on certain criteria
+- As a site user I can search for where the reviewed film is being shown in my local area so that I can see the film being reviewed and form my own opinion
+- As a site user I can register an account using my social media accounts so that I don't have to create separate login details for the website
+- As a site user I can edit my comments so that I can fix mistakes or add additional content
+- As a site user I can search for specific reviews so that I can quickly find a review of a film
 
 ## Design
 
 ### Colour Palette
-- 
 
-![Colour palette for the website](./)
+![Colour palette for the website](./media/images/colour_palette.jpg)
 
 
 ### Typography
-- 
-
-
-### Imagery
-- 
-
-
+- Helvetica font used for review content for readability
+- Lato font used for headers and prominent titles
 
 ### Wireframes
-- I designed the website firstly through hand drawn sketches that were then turned into basic wireframes on Figma, before being made into high fidelity wireframes.
+- I designed the website firstly through hand drawn sketches that were then turned into basic wireframes on Figma.
 
-- [Desktop Wireframe](./)
-- [Tablet Wireframe](./)
-- [Mobile Wireframe](./)
-- [Desktop High Fidelity Wireframe](./media/images/)
-- [Tablet High Fidelity Wireframe](./)
-- [Mobile High Fidelity Wireframe](./)
+- [Desktop Wireframe](./media/images/homepage_wireframe_dsktp.jpg)
 
-
+- [Mobile Wireframe](./media/images/homepage_wireframe_mobile.jpg)
 
 ### Accessibility
 
@@ -181,12 +193,17 @@ Please see screenshots of the results below:
 
 ### Responsiveness Testing
 - The website was tested for responsiveness using the Chrome and Firefox browsers and their associated Developer Tools. 
-#### Chrome
-- A variety of screen sizes were checked for responsiveness using the Developer tools from 4K displays at 2560px wide, laptop sizes 1440px and 1024px, tablets at 768px, and a variety of mobile sizes down to 320px width. All elements maintained functionality and visibility in all scenarios, however, there were some issues with mobile landscape being able to fit all the componenets on the screen at the same time(see fixed bugs section below). Real world testing was also conducted on physical devices of various sizes to ensure integrity. No issue was encountered on these apart from the mobile landscape issue.
+#### Chrome Developer tools
+- A variety of screen sizes were checked for responsiveness using the Developer tools from 4K displays at 2560px wide, laptop sizes 1440px and 1024px, tablets at 768px, and a variety of mobile sizes down to 320px width. All elements maintained functionality and visibility in all scenarios, however, there were some issues with responsiveness on images on the actor_detail page on smaller devices.
 - A Lighthouse report was run several times to gauge the performance, accessibility, best practice and SEO scores. 
 
- - ![Lighthouse scoring Desktop](./media/images/)
- - ![Lighthouse scoring Mobile](./media/images/)
+#### Lighthouse Scoring
+
+ - [Lighthouse scoring Homepage Desktop](./media/images/homepage_lighthouse_results_dsktp.jpg)
+ - [Lighthouse scoring Post Detail Desktop](./media/images/post_detail_lighthouse_results_dsktp.jpg)
+ - [Lighthouse scoring Actor List Desktop](./media/images/actor_list_lighthouse_results_dsktp.jpg)
+ - [Lighthouse scoring Actor Detail Desktop](./media/images/actor_detail_lighthouse_results_dsktp.jpg)
+
 
 ### Accessibility Testing
 - Multiple tests were run on the website using Lighthouse and A11y Color Contrast Accessibility Validator to examine any accessibility issues. https://color.a11y.com/
@@ -194,24 +211,56 @@ Please see screenshots of the results below:
 - Firefox's built in colour blindness simulator was used to identify any areas where sufficient colour contrast was not present. No such areas were found.
 
 ### User Story Testing
-
+- The delivered user stories were manually tested to ensure all acceptance criteria were met
+- ![User Story Manual Testing](./media/images/user_story_testing_pt1.jpg)
+- ![User Story Manual Testing](./media/images/user_story_testing_pt2.jpg)
 
 ## Deployment
 I used Gitpod to develop the website and the site was deployed using Heroku.
 
-- The steps to deploy are as follows: 
+- The steps to deploy are as follows:
+
+- Login or create an account at Heroku.
+- On the main page, select the 'New' button and then select 'Create New App' from the drop-down.
+- Give your app a unique name and choose your relevant region e.g. Europe.
+- In the 'Settings' tab of your app select 'Reveal Config Vars'.
+- Add a value for 'SECRET_KEY' connecting to your django environment.
+- Add a value for 'DATABASE_URL' connecting to your postgreSQL database.
+- Add a value for 'ClOUDINARY_URL' connecting to cloudinary's cloud hosting service for media.
+- Back at the top of the page select the 'Deploy' tab.
+- Select GitHub as preferred deployment method, confirm connecting to Github if not automatic.
+- Connect to your relevant repository on GitHub.
+
+- Ensure DEBUG = False in settings.py when making final deployment
+
+To Clone
+You can clone this project by executing the following:
+- Open this project on GitHub here.
+- You will be provided with three options to choose from, HTTPS, SSH or GitHub CLI, click clipboard in order to copy.
+- Once selected, the forked project will be in your repositories.
+- Open up a new terminal.
+- Adjust the current directory to be the location you wish the cloned directory to be.
+- Type 'git clone' and paste the URL copied above in step 2.
+- Hit 'Enter' and the project will be successfully cloned.
+
+To Fork
+- Open this project on GitHub here.
+- The fork button is found at the top of the page.
+- The forked project will be in your repositories.
 
 The live link can be found here - https://
 
 ## Bugs
 ### Fixed Bugs
+- Actor_Detail page was not loading due to errors in the views and Url patterns code. This was fixed with the aid of Josh from Tutor Support.
 
 ### Known Bugs
+- Responsiveness on Actor Detail card on smaller devices.
 
 ## Credits
 
 ### Code
-
+- Main code based on Code Institute's walkthrough project "I think therefore I blog" with changes made to suit my project
 
 ### Content
 
@@ -219,8 +268,11 @@ The live link can be found here - https://
 - The social media icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
 
 ### Media
-
+- Film images sourced from Empire movie reviews website (https://www.empireonline.com/movies/reviews/)
+- Actor images sourced from Wikipedia (https://www.wikipedia.com)
+- Icons sourced from Font Awesome
 
 
 ## Acknowledgements
  - The CI students who peer reviewed my website and gave feedback
+ - Josh on Tutor support who helped me overcome a late issue in my website

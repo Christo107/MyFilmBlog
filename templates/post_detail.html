@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 {% load crispy_forms_tags %}
-
+<!-- based on CI walkthrough blog project with alterations to include score rating -->
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -60,7 +60,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg" width="100%">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
+                <img src=" {{ post.featured_image.url }}" width="100%" alt=" {{ post.alt_tag }} ">
                 {% endif %}
             </div>
         </div>

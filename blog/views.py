@@ -4,12 +4,16 @@ from django.http import HttpResponseRedirect
 from .models import Post, Actor
 from .forms import CommentForm
 
+# based on CI walkthrough blog project
+
 
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
+
+# based on CI walkthrough blog project
 
 
 class PostDetail(View):
@@ -33,6 +37,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+# based on CI walkthrough blog project
 
     def post(self, request, slug,  *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -65,6 +70,8 @@ class PostDetail(View):
             },
         )
 
+# based on CI walkthrough blog project
+
 
 class PostLike(View):
 
@@ -77,6 +84,8 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+# custom views for project
 
 
 class ActorList(generic.ListView):
