@@ -60,6 +60,7 @@ class Actor(models.Model):
     name = models.CharField(max_length=80)
     slug = models.SlugField(max_length=200, blank=True, unique=True)
     birthday = models.DateField()
+    bio = models.CharField(max_length=5000, blank=True)
     featured_image = CloudinaryField('image', default='placeholder')
     films = models.ManyToManyField(Post)
 

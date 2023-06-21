@@ -72,7 +72,7 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 75vh;
+    height: auto;
     width: 100%;
 }
 
@@ -158,4 +158,8 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.masthead-text-content {
+    margin-left: 5%;
 }
