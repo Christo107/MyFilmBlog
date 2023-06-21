@@ -5,7 +5,9 @@ The website has a simple layout with a homepage containing a list of the latest 
 
 ![Responsive Mockup](./media/images)
 
-The live website on Github pages can be accessed at the following link: [View my Live Website on Github Pages here](https://github.com/Christo107/MyFilmBlog)
+[Link to my Github Repository](https://github.com/Christo107/MyFilmBlog)
+
+The live website on Github can be accessed at the following link: [View my Live Website on Heroku here](https://myfilmblog.herokuapp.com/)
 
 ## CONTENTS
 
@@ -248,7 +250,7 @@ To Fork
 - The fork button is found at the top of the page.
 - The forked project will be in your repositories.
 
-The live link can be found here - https://
+The live link can be found here - https://myfilmblog.herokuapp.com/
 
 ## Bugs
 ### Fixed Bugs
