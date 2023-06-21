@@ -3,7 +3,7 @@ This website was designed and developed as a film review blog where reviews of t
 
 The website has a simple layout with a homepage containing a list of the latest reviews, along with an actors biography section.
 
-![Responsive Mockup](./media/images)
+![Responsive Mockup](./media/images/am_i_responsive.jpg)
 
 [Link to my Github Repository](https://github.com/Christo107/MyFilmBlog)
 
