@@ -30,13 +30,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['myfilmblog.herokuapp.com', 'localhost',
                  '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu99.gitpod.io',
-                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu100.gitpod.io']
+                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu100.gitpod.io',
+                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu102.gitpod.io']
 
 
 # Application definition
@@ -109,12 +110,12 @@ WSGI_APPLICATION = 'filmblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -127,19 +128,22 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.\
-            UserAttributeSimilarityValidator',
+                UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.\
-            MinimumLengthValidator',
+                MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 9,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.\
-            CommonPasswordValidator',
+                CommonPasswordValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.\
-            NumericPasswordValidator',
+                NumericPasswordValidator',
     },
 ]
 
