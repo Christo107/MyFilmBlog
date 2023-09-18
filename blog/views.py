@@ -132,7 +132,8 @@ def Add_BlogPost(request):
             messages.success(request, 'Successfully added blog post!')
             return redirect(reverse('add_blog_post'))
         else:
-            messages.error(request, 'Failed to add blog post. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add blog post. Please\
+                           ensure the form is valid.')
     else:
         form = BlogForm()
 
