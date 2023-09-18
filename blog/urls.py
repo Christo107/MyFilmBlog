@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+from .views import Add_BlogPost
 
 # based on CI walkthrough blog project
 urlpatterns = [
@@ -8,4 +9,5 @@ urlpatterns = [
     path('actor/<int:id>/', views.ActorDetail.as_view(), name='actor_detail'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
+    path('blog/add/', views.Add_BlogPost, name='add_blog_post'),
 ]

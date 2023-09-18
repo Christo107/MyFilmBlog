@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Actor
-from .forms import CommentForm
+from .forms import CommentForm, BlogForm
 
 # based on CI walkthrough blog project
 
@@ -120,3 +121,24 @@ class ActorDetail(View):
                 "actor": actor,
             },
         )
+
+
+def Add_BlogPost(request):
+    """ Add a new blog post to the website """
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added blog post!')
+            return redirect(reverse('add_blog_post'))
+        else:
+            messages.error(request, 'Failed to add blog post. Please ensure the form is valid.')
+    else:
+        form = BlogForm()
+
+    template = 'add_blog_post.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

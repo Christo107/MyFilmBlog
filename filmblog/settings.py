@@ -35,9 +35,7 @@ DEBUG = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['myfilmblog.herokuapp.com', 'localhost',
-                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu99.gitpod.io',
-                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu100.gitpod.io',
-                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu102.gitpod.io']
+                 '8000-christo107-myfilmblog-gs5dpmmwiix.ws-eu104.gitpod.io']
 
 
 # Application definition
