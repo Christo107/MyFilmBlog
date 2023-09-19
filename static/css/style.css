@@ -164,28 +164,24 @@ body {
     margin-left: 5%;
 }
 
-.overlay {
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffffffa2;
-    position: fixed;
-}
-
-.confirm_delete_ctn {
-    justify-content: center;
-    align-items: center;
+.confirm_popup {
+    background-color: #23BBBB;
+    z-index: 9999;
 }
 
 .overlay {
-    display: none;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: rgba(255, 255, 255, 0.651);
+	z-index: 20;
+}
+
+.center {
     position: fixed;
-    padding: 10px;
-    width: 280px;
     left: 50%;
-    margin-left: -150px;
-    height: 180px;
     top: 50%;
-    margin-top: -100px;
-    background: #FFF;
-    z-index: 20;
-  }
+    transform: translate(-50%, -50%);
+}
