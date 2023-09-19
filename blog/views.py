@@ -143,3 +143,15 @@ def Add_BlogPost(request):
     }
 
     return render(request, template, context)
+
+
+def Delete_Blog_Post(request, post_id):
+    """ Delete a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('home'))
+
+    blog_post = get_object_or_404(Post, pk=post_id)
+    blog_post.delete()
+    messages.success(request, 'Post deleted!')
+    return redirect(reverse('home'))

@@ -169,6 +169,12 @@
             </div>
         </div>
     </div>
+    {% if user.is_superuser %}
+    <small>
+        <a href="">Edit</a> |
+        <a href="{% url 'delete_blog_post' post.id %}" class="text-danger">Delete</a>
+    </small>
+    {% endif %}   
 </div>
 
 {% endblock content %}
