@@ -43,7 +43,7 @@
                     </li>
                     {% if user.is_superuser %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">Add a Blog Post</a>
+                        <a class="nav-link" href="{% url 'add_blog_post' %}">Add a Blog Post</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated %}

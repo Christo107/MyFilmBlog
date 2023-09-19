@@ -163,3 +163,29 @@ body {
 .masthead-text-content {
     margin-left: 5%;
 }
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffffa2;
+    position: fixed;
+}
+
+.confirm_delete_ctn {
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    padding: 10px;
+    width: 280px;
+    left: 50%;
+    margin-left: -150px;
+    height: 180px;
+    top: 50%;
+    margin-top: -100px;
+    background: #FFF;
+    z-index: 20;
+  }
