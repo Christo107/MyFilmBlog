@@ -1,5 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
+
+{% block confirm_delete %}
+{% endblock confirm_delete %}
+
 {% load crispy_forms_tags %}
 <!-- based on CI walkthrough blog project with alterations to include score rating -->
 <div class="masthead">
@@ -115,6 +119,12 @@
     
     <div class="row">
         <div class="col">
+            {% if user.is_superuser %}
+            <small>
+                <a href="">Edit</a> |
+                <a href="{% url 'delete_blog_post_confirm' post.id %}" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
             <hr>
         </div>
     </div>
@@ -172,7 +182,7 @@
     {% if user.is_superuser %}
     <small>
         <a href="">Edit</a> |
-        <a href="{% url 'delete_blog_post' post.id %}" class="text-danger">Delete</a>
+        <a href="{% url 'delete_blog_post_confirm' post.id %}" class="text-danger">Delete</a>
     </small>
     {% endif %}   
 </div>

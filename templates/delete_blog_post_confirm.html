@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "post_detail.html" %}
 
 {% block extra_title %}| Delete Blog Post?{% endblock %}
 
@@ -10,7 +10,7 @@
 </div>
 {% endblock %}
 
-{% block content %}
+{% block confirm_delete %}
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
@@ -26,11 +26,11 @@
             <p>Are you sure you want to delete the following post?</p>
             <p class="font-italic">{{ post.name }}</p>
             <div class="text-right mt-5">                
-                <a href="{% url 'posts' %}" class="btn btn-outline-black rounded-0">Cancel</a>
+                <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0">Cancel</a>
                 <a href="{% url 'delete_blog_post' post.id %}" class="btn btn-red text-white rounded-0">Delete</a>                
             </div>
         </div>
     </div>
 </div>
 
-{% endblock %}
+{% endblock confirm_delete %}

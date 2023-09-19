@@ -145,6 +145,23 @@ def Add_BlogPost(request):
     return render(request, template, context)
 
 
+def Delete_Blog_Post_Confirm(request, post_id):
+    """ View to confirm blog post deletion """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('home'))
+
+    queryset = Post.objects
+    post = get_object_or_404(queryset, pk=post_id)
+
+    template = 'delete_blog_post_confirm.html'
+    context = {
+        'post': post,
+    }
+
+    return render(request, template, context)
+
+
 def Delete_Blog_Post(request, post_id):
     """ Delete a blog post """
     if not request.user.is_superuser:
