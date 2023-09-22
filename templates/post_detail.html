@@ -121,7 +121,7 @@
         <div class="col">
             {% if user.is_superuser %}
             <small>
-                <a href="">Edit Blog Post</a> |
+                <a href="{% url 'edit_blog_post' post.id %}">Edit Blog Post</a> |
                 <a href="{% url 'delete_blog_post_confirm' post.id %}" class="text-danger">Delete Blog Post</a>
             </small>
             {% endif %}

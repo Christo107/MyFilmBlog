@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import Post, Actor
 from .forms import CommentForm, BlogForm
 
@@ -172,3 +173,61 @@ def Delete_Blog_Post(request, post_id):
     blog_post.delete()
     messages.success(request, 'Post deleted!')
     return redirect(reverse('home'))
+
+
+# def Edit_Blog_Post(request, post_id):
+#     """ Edit a blog post """
+#     if not request.user.is_superuser:
+#         messages.error(request, 'Sorry, only admins can do that.')
+#         return redirect(reverse('home'))
+
+#     blog_post = get_object_or_404(Post, pk=post_id)
+#     form = BlogForm
+
+#     if form.is_valid():
+#         post.save()
+#         messages.success(request, 'Post edited!')
+#         return redirect(reverse('home'))
+
+#     else:
+#         form = BlogForm()
+#         messages.error(request, 'Failed to update product. \
+#                             Please ensure the form is valid.')
+
+#     template = 'edit_blog_post.html'
+#     context = {
+#         'blog_post': blog_post,
+#         'form': form,
+#     }
+
+#     return render(request, template, context)
+
+
+@login_required
+def Edit_Blog_Post(request, post_id):
+    """ Edit a blog post on the website """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated blog post!')
+            return redirect(reverse('post_detail', args=[post.slug]))
+        else:
+            messages.error(request, 'Failed to update post. Please \
+                                     ensure the form is valid.')
+    else:
+        form = BlogForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'edit_blog_post.html'
+    context = {
+        'form': form,
+        'post': post,
+    }
+
+    return render(request, template, context)
