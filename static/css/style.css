@@ -160,6 +160,12 @@ body {
     border: none;
 }
 
+.btn:hover,
+.btn:active {
+    background-color: #fff;
+    color: #000;
+}
+
 .masthead-text-content {
     margin-left: 5%;
 }

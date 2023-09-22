@@ -27,8 +27,8 @@
                 <p>Are you sure you want to delete the following post?</p>
                 <p class="font-italic">{{ post.name }}</p>
                 <div class="text-right mt-5">                
-                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-black rounded-0">Cancel</a>
-                    <a href="{% url 'delete_blog_post' post.id %}" class="btn btn-red text-black rounded-0">Delete</a>                
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark rounded-0">Cancel</a>
+                    <a href="{% url 'delete_blog_post' post.id %}" class="btn btn-danger rounded-0">Delete</a>                
                 </div>
             </div>
         </div>
