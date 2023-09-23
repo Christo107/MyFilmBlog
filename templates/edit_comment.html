@@ -1,4 +1,6 @@
-{% extends "post_detail.html" %}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 
 {% block extra_title %}| Edit Comment{% endblock %}
 
@@ -25,11 +27,15 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <p>Are you sure you want to edit the following comment?</p>
-                <p class="font-italic">{{ comment.body }}</p>
+                <form action="{% url 'edit_comment' comment.id %}" method="POST" class="form mb-2">
+                    {% csrf_token %}
+                    {{ form.as_p }}
                 <div class="text-right mt-5">                
-                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark rounded-0">Cancel</a>
-                    <a href="{% url 'edit_comment' post.id %}" class="btn btn-danger rounded-0">Save</a>                
+                    <a href="{% url 'home' %}" class="btn btn-dark rounded-0">Cancel</a>
+                    <!-- <a href="{% url 'edit_comment' comment.id %}" class="btn btn-danger rounded-0">Save</a>                 -->
+                    <button type="submit" class="btn btn-black">Save</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>

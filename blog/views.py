@@ -209,19 +209,20 @@ def Edit_Blog_Post(request, post_id):
 def Edit_Comment(request, comment_id):
     """ Edit a comment on a blog post """
 
-    comment = get_object_or_404(Post, pk=comment_id)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    form = CommentForm()
 
-    if request.user != comment.user:
+    if request.user.username != comment.name:
         messages.error(request, f'Sorry, that is not allowed.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = CommentForm(request.POST, instance=comment)
+        form = CommentForm(request.POST, request.FILES, instance=comment)
         if form.is_valid():
             form.save()
             messages.success(
                 request, 'Comment successfully updated!')
-            return redirect(reverse('post_detail', args=[post.id]))
+            return redirect(reverse('home'))
         else:
             messages.error(
                 request, 'Failed to update this comment. \

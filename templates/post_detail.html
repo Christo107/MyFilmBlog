@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-
+{% load crispy_forms_tags %}
 
 {% block confirm_delete %}
 {% endblock confirm_delete %}
@@ -7,7 +7,7 @@
 {% block edit_comment %}
 {% endblock edit_comment %}
 
-{% load crispy_forms_tags %}
+
 <!-- based on CI walkthrough blog project with alterations to include score rating -->
 <div class="masthead">
     <div class="container">
