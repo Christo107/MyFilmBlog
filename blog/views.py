@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import Post, Actor
+from .models import Post, Actor, Comment
 from .forms import CommentForm, BlogForm
 
 # based on CI walkthrough blog project
@@ -175,34 +175,6 @@ def Delete_Blog_Post(request, post_id):
     return redirect(reverse('home'))
 
 
-# def Edit_Blog_Post(request, post_id):
-#     """ Edit a blog post """
-#     if not request.user.is_superuser:
-#         messages.error(request, 'Sorry, only admins can do that.')
-#         return redirect(reverse('home'))
-
-#     blog_post = get_object_or_404(Post, pk=post_id)
-#     form = BlogForm
-
-#     if form.is_valid():
-#         post.save()
-#         messages.success(request, 'Post edited!')
-#         return redirect(reverse('home'))
-
-#     else:
-#         form = BlogForm()
-#         messages.error(request, 'Failed to update product. \
-#                             Please ensure the form is valid.')
-
-#     template = 'edit_blog_post.html'
-#     context = {
-#         'blog_post': blog_post,
-#         'form': form,
-#     }
-
-#     return render(request, template, context)
-
-
 @login_required
 def Edit_Blog_Post(request, post_id):
     """ Edit a blog post on the website """
@@ -231,3 +203,52 @@ def Edit_Blog_Post(request, post_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def Edit_Comment(request, comment_id):
+    """ Edit a comment on a blog post """
+
+    comment = get_object_or_404(Post, pk=comment_id)
+
+    if request.user != comment.user:
+        messages.error(request, f'Sorry, that is not allowed.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, 'Comment successfully updated!')
+            return redirect(reverse('post_detail', args=[post.id]))
+        else:
+            messages.error(
+                request, 'Failed to update this comment. \
+                    Please ensure the form is valid.')
+    else:
+        form = CommentForm(instance=comment)
+        messages.info(request, 'You are editing your comment')
+
+    template = 'edit_comment.html'
+
+    context = {
+        'form': form,
+        'comment': comment,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def Delete_Comment(request, comment_id):
+    """ Delete a comment from a blog post """
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if request.user.username != comment.name:
+        messages.error(request, 'Sorry, that is not allowed.')
+        return redirect(reverse('home'))
+
+    comment.delete()
+    messages.success(request, 'Comment successfully deleted!')
+    return redirect(reverse('home'))

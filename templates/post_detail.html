@@ -4,6 +4,9 @@
 {% block confirm_delete %}
 {% endblock confirm_delete %}
 
+{% block edit_comment %}
+{% endblock edit_comment %}
+
 {% load crispy_forms_tags %}
 <!-- based on CI walkthrough blog project with alterations to include score rating -->
 <div class="masthead">
@@ -147,8 +150,8 @@
                     {{ comment.body | linebreaks }}
                     {% if user.is_authenticated and user.username == comment.name %}
                     <div>
-                        <a href="">Edit Comment</a>
-                        <a href="">Delete Comment</a>
+                        <a href="{% url 'edit_comment' comment.id %}">Edit Comment</a>
+                        <a href="{% url 'delete_comment' comment.id %}">Delete Comment</a>
                     </div>
                     {% endif %}
                 </div>
