@@ -15,7 +15,7 @@
 {% block edit_comment %}
 <div class="overlay"></div>
 <div class="container my-5">
-    <div class="confirm_popup center p-5">
+    <div class="col-11 col-md-4 confirm_popup center p-5 shadow-lg">
         <div class="row justify-content-center">
             <div class="col-12">
                 <hr>
@@ -32,14 +32,14 @@
                     {{ form.as_p }}
                 <div class="text-right mt-5">                
                     <a href="{% url 'home' %}" class="btn btn-dark rounded-0">Cancel</a>
-                    <!-- <a href="{% url 'edit_comment' comment.id %}" class="btn btn-danger rounded-0">Save</a>                 -->
-                    <button type="submit" class="btn btn-black">Save</button>
+                    <button type="submit" class="btn btn-outline-dark rounded-0">Save</button>
                 </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 {% endblock edit_comment %}
 

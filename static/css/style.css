@@ -181,7 +181,7 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: rgba(255, 255, 255, 0.651);
+	background: #23bbbbc0;
 	z-index: 20;
 }
 
@@ -190,4 +190,18 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.save-btn {
+    background-color: #23BBBB;
+    color: #fff;
+}
+
+/* styles to overide default form styles */
+label {
+    display: block;
+}
+
+textarea {
+    width: 100%;
 }

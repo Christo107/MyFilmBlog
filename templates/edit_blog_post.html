@@ -2,26 +2,23 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container container-css">
+<div class="container container-css shadow-lg my-5">
     <div class="row justify-content-center mt-5">
-        <div class="col col-md-6 col-sm-12">
-            <h2>Edit the Blog Post below</h2>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-5 col-sm-12">
+        <div class="col-md-8 col-sm-12">
             <form method="post" action="{% url 'edit_blog_post' post.id %}">
+                <div class="row justify-content-left mt-5">
+                    <div class="col col-md-6 col-sm-12 mt-5">
+                        <h2>Edit the Blog Post below</h2>
+                    </div>
+                </div>
                 {{ form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Save</button>
-            </form>
-            <a href="{% url 'home' %}">
-                <div>
-                    <button class="btn btn-home btn-lg">Return to Home!</button>
+                <div class="text-right my-5">
+                <a href="{% url 'home' %}"><button class="btn btn-dark rounded-0">Cancel</button></a>
+                <button type="submit" class="btn btn-outline-dark save-btn rounded-0">Save</button>
                 </div>
-            </a>
+            </form>
+
         </div>
     </div>
 </div>
