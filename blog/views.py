@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.urls import reverse_lazy
 from django.views import generic, View
+from django.views.generic.edit import UpdateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -206,15 +208,16 @@ def Edit_Blog_Post(request, post_id):
 
 
 @login_required
-def Edit_Comment(request, comment_id):
+def Edit_Comment(request, comment_id, post_id):
     """ Edit a comment on a blog post """
 
     comment = get_object_or_404(Comment, pk=comment_id)
     form = CommentForm()
+    post = get_object_or_404(Post, pk=post_id)
 
     if request.user.username != comment.name:
         messages.error(request, f'Sorry, that is not allowed.')
-        return redirect(reverse('home'))
+        return redirect(reverse('post_detail', args=[post.slug]))
 
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES, instance=comment)
@@ -222,7 +225,7 @@ def Edit_Comment(request, comment_id):
             form.save()
             messages.success(
                 request, 'Comment successfully updated!')
-            return redirect(reverse('home'))
+            return redirect(reverse('post_detail', args=[post.slug]))
         else:
             messages.error(
                 request, 'Failed to update this comment. \
@@ -252,4 +255,4 @@ def Delete_Comment(request, comment_id):
 
     comment.delete()
     messages.success(request, 'Comment successfully deleted!')
-    return redirect(reverse('home'))
+    return redirect(reverse('post_detail', args=[post.slug]))

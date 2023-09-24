@@ -31,7 +31,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                 <div class="text-right mt-5">                
-                    <a href="{% url 'home' %}" class="btn btn-dark rounded-0">Cancel</a>
+                    <a href="{% url 'post_detail' comment.post.slug %}" class="btn btn-dark rounded-0">Cancel</a>
                     <button type="submit" class="btn btn-outline-dark rounded-0">Save</button>
                 </div>
                 </form>
