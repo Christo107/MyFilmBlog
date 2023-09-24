@@ -63,7 +63,7 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
+    height: auto;
     width: 100%;
 }
 
@@ -82,9 +82,18 @@ body {
     position: relative;
 }
 
+.on-top {
+    z-index: 1;
+}
+
 .masthead-image {
     position: relative;
     overflow: hidden;
+}
+
+.cover {
+    height: 100%;
+    object-fit: cover;
 }
 
 .masthead-image:after {
@@ -204,4 +213,18 @@ label {
 
 textarea {
     width: 100%;
+}
+
+.iframe {
+    max-width: 85vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 767.98px) {
+
+    .masthead-image:after {
+        display: none;
+    }
 }

@@ -14,11 +14,11 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
+                <h1 class="post-title on-top">{{ post.title }}</h1>
                 <!-- Post cast goes in this span tags -->
-                <span class="post-subtitle">Cast: {{ post.cast }}</span>
+                <span class="post-subtitle on-top">Cast: {{ post.cast }}</span>
                 <!-- Review star rating goes below -->
-                <div class="star-rating">
+                <div class="star-rating on-top">
                     <span>
                         {% if post.score == 5 %}
                         <i class="fa-solid fa-star"></i>
@@ -60,14 +60,14 @@
                     </span>    
                 </div>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle on-top">{{ post.author }} | {{ post.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg" width="100%">
+                <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg" width="100%" class="cover">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%" alt=" {{ post.alt_tag }} ">
+                <img src=" {{ post.featured_image.url }}" width="100%" alt=" {{ post.alt_tag }} "  class="cover">
                 {% endif %}
             </div>
         </div>
