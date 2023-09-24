@@ -215,6 +215,10 @@ textarea {
     width: 100%;
 }
 
+.col-1 {
+    width: 10%;
+}
+
 .iframe {
     max-width: 85vw;
     display: flex;
