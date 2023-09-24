@@ -13,7 +13,7 @@
 {% block confirm_delete %}
 <div class="overlay"></div>
 <div class="container my-5">
-    <div class="confirm_popup center p-5">
+    <div class="confirm_popup center shadow p-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <hr>
@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <p>Are you sure you want to delete the following post?</p>
-                <p class="font-italic">{{ post.name }}</p>
+                <h4 class="font-italic">{{ post.title }}</h4>
                 <div class="text-right mt-5">                
                     <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark rounded-0">Cancel</a>
                     <a href="{% url 'delete_blog_post' post.id %}" class="btn btn-danger rounded-0">Delete</a>                

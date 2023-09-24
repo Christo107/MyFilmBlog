@@ -98,7 +98,7 @@ body {
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
-    z-index: 100;
+    z-index: 1;
 }
 
 .post-link {
@@ -181,8 +181,8 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: #23bbbbc0;
-	z-index: 20;
+	background: #ffffffa1;
+	z-index: 999;
 }
 
 .center {
