@@ -16,7 +16,7 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title on-top">{{ post.title }}</h1>
                 <!-- Post cast goes in this span tags -->
-                <span class="post-subtitle on-top">Cast: {{ post.cast }}</span>
+                <span class="post-subtitle on-top">Cast: {% for actor in actor_list %}<span>Test {{ actor.name }},</span>{% endfor %}</span>
                 <!-- Review star rating goes below -->
                 <div class="star-rating on-top">
                     <span>

@@ -217,7 +217,7 @@ def Edit_Comment(request, comment_id, post_id):
 
     if request.user.username != comment.name:
         messages.error(request, f'Sorry, that is not allowed.')
-        return redirect(reverse('post_detail', args=[post.slug]))
+        return redirect(reverse('post_detail', args=[post_id]))
 
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES, instance=comment)
@@ -225,7 +225,7 @@ def Edit_Comment(request, comment_id, post_id):
             form.save()
             messages.success(
                 request, 'Comment successfully updated!')
-            return redirect(reverse('post_detail', args=[post.slug]))
+            return redirect(reverse('post_detail', args=[post_id]))
         else:
             messages.error(
                 request, 'Failed to update this comment. \
@@ -245,7 +245,7 @@ def Edit_Comment(request, comment_id, post_id):
 
 
 @login_required
-def Delete_Comment(request, comment_id):
+def Delete_Comment(request, comment_id, post_id):
     """ Delete a comment from a blog post """
     comment = get_object_or_404(Comment, pk=comment_id)
 
@@ -255,4 +255,4 @@ def Delete_Comment(request, comment_id):
 
     comment.delete()
     messages.success(request, 'Comment successfully deleted!')
-    return redirect(reverse('post_detail', args=[post.slug]))
+    return redirect(reverse('post_detail', args=[post_id]))

@@ -29,3 +29,4 @@ class CommentAdmin(admin.ModelAdmin):
 class ActorAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'birthday')
+    prepopulated_fields = {'slug': ('name',)}
