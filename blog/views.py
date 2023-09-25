@@ -39,7 +39,7 @@ class PostDetail(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm()
-            },
+            }
         )
 # based on CI walkthrough blog project
 
