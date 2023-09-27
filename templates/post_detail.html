@@ -151,7 +151,7 @@
                     {% if user.is_authenticated and user.username == comment.name %}
                     <div>
                         <a href="{% url 'edit_comment' comment.id %}">Edit Comment</a>
-                        <a href="{% url 'delete_comment' comment.id %}" class="text-danger">Delete Comment</a>
+                        <a href="{% url 'delete_comment_confirm' comment.id %}" class="text-danger">Delete Comment</a>
                     </div>
                     {% endif %}
                 </div>

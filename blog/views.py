@@ -244,6 +244,23 @@ def Edit_Comment(request, comment_id):
     return render(request, template, context)
 
 
+def Delete_Comment_Confirm(request, comment_id):
+    """ View to confirm comment deletion """
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if request.user.username != comment.name:
+        messages.error(request, 'Sorry, that is not allowed.')
+        return redirect(reverse('home'))
+
+    template = 'delete_comment_confirm.html'
+    context = {
+        'comment': comment,
+    }
+
+    return render(request, template, context)
+
+
 @login_required
 def Delete_Comment(request, comment_id):
     """ Delete a comment from a blog post """

@@ -1,7 +1,8 @@
 from . import views
 from django.urls import path
 from .views import (Add_BlogPost, Delete_Blog_Post, Delete_Blog_Post_Confirm,
-                    Edit_Blog_Post, Edit_Comment, Delete_Comment)
+                    Edit_Blog_Post, Edit_Comment, Delete_Comment_Confirm,
+                    Delete_Comment, PostLike)
 
 # based on CI walkthrough blog project
 urlpatterns = [
@@ -18,6 +19,8 @@ urlpatterns = [
      path('edit/<int:post_id>/', views.Edit_Blog_Post, name='edit_blog_post'),
      path('edit_comment/<int:comment_id>/', views.Edit_Comment,
           name='edit_comment'),
+     path('<int:comment_id>/delete_confirm/', views.Delete_Comment_Confirm,
+          name='delete_comment_confirm'),
      path('delete/<int:comment_id>/', views.Delete_Comment,
           name='delete_comment'),
 ]
