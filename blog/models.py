@@ -71,7 +71,7 @@ class Actor(models.Model):
     bio = models.CharField(max_length=5000, blank=True)
     featured_image = CloudinaryField('image', default='placeholder')
     alt_tag = models.CharField(max_length=50, default='actor image')
-    films = models.ManyToManyField(Post)
+    posts = models.ManyToManyField(Post, blank=True)
 
     class Meta:
         ordering = ["name"]
