@@ -11,12 +11,10 @@
                 <p class="post-subtitle">Birthday: {{ actor.birthday }}</p>
                 <p class="masthead-text-content">Bio: {{ actor.bio }}</p>
                 <br>
-                {% for post in posts %}
-                <p>Test{{ Post.title }}</p>
-                {% endfor %}
+                <p>{{ actor.posts }}</p>
                 <span class="masthead-text-content">Links to film reviews for {{ actor.name }} <strong>coming soon!</strong></span>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in actor.featured_image.url %}
                 <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg" width="100%">
@@ -27,32 +25,5 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="masthead-tall">
-    <div class="container">
-        <div class="container">
-            <div class="d-none d-md-block col-md-6 masthead-image" style="width: 25rem;">
-                <img class="card-img-top" src=" {{ actor.featured_image.url }}" width="100%" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text">
-                    <!-- {{ actor.films | safe }} -->
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-    
 
 {% endblock content %}
