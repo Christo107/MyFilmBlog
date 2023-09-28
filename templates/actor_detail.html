@@ -11,6 +11,7 @@
                 <p class="post-subtitle">Birthday: {{ actor.birthday }}</p>
                 <p class="masthead-text-content">Bio: {{ actor.bio }}</p>
                 <br>
+                <h3>Films:</h3> <ul> {% for post in posts %} <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li> {% endfor %} </ul>
                 <p>{{ actor.posts }}</p>
                 <span class="masthead-text-content">Links to film reviews for {{ actor.name }} <strong>coming soon!</strong></span>
             </div>

@@ -22,11 +22,15 @@ class PostList(generic.ListView):
 
 class PostDetail(View):
 
+
+
     def get(self, request, slug,  *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
+        actors = post.cast.all()
         liked = False
+
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -38,9 +42,13 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "actors": actors,
             }
         )
+
+
+
 # based on CI walkthrough blog project
 
     def post(self, request, slug,  *args, **kwargs):
@@ -104,12 +112,14 @@ class ActorDetail(View):
     def get(self, request, id,  *args, **kwargs):
         queryset = Actor.objects.all()
         actor = get_object_or_404(queryset, id=id)
+        posts = actor.posts.all()
 
         return render(
             request,
             "actor_detail.html",
             {
                 "actor": actor,
+                "posts": posts,
             },
         )
 
@@ -124,7 +134,6 @@ class ActorDetail(View):
                 "actor": actor,
             },
         )
-
 
 def Add_BlogPost(request):
     """ Add a new blog post to the website """
