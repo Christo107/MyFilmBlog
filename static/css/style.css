@@ -56,6 +56,14 @@ body {
     background-color: #23BBBB;
 }
 
+.image-flash-small {
+    position: absolute;
+    bottom: 5%;
+    min-width: 20%;
+    left: -2px;
+    background-color: #23BBBB;
+}
+
 .author {
     color: white;
     margin: 4px;
@@ -250,6 +258,14 @@ textarea {
     color: white;
     text-align: left;
     text-decoration: none;
+}
+
+.bg-col {
+    background-color: #23BBBB;
+}
+
+.post-thumbnail-title {
+    min-height: 4rem;
 }
 
 @media screen and (max-width: 767.98px) {

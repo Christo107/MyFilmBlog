@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% load static %}
 
 {% load crispy_forms_tags %}
 
@@ -11,9 +12,7 @@
                 <p class="post-subtitle">Birthday: {{ actor.birthday }}</p>
                 <p class="masthead-text-content">Bio: {{ actor.bio }}</p>
                 <br>
-                <h3>Films:</h3> <ul> {% for post in posts %} <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li> {% endfor %} </ul>
-                <p>{{ actor.posts }}</p>
-                <span class="masthead-text-content">Links to film reviews for {{ actor.name }} <strong>coming soon!</strong></span>
+                <!-- <p class="post-subtitle">Reviews:</p> <ul class = "inline-list"> {% for post in posts %} <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li> {% endfor %} </ul> -->
             </div>
             <div class="d-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
@@ -25,6 +24,75 @@
             </div>
         </div>
     </div>
-</div>
+<!-- </div> -->
 
+    <div class="container my-3">
+        <h4>Reviews featuring {{ actor.name }}:</h4>
+        <div class="row g-2">
+            {% for post in posts %}
+            <div class="col-md-3 col-sm-4 inline-list-item mb-1">
+                <div class="card">
+                    <div class="card-body">
+                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <div class="image-container">
+                            {% if "placeholder" in post.featured_image.url %}
+                            <img class="card-img-top"
+                                src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg">
+                            {% else %}
+                            <img class="card-img-top" src=" {{ post.featured_image.url }}" alt=" {{ post.alt_tag }} ">
+                            {% endif %}
+                            <div class = "image-flash-small">
+                                <span>
+                                    {% if post.score == 5 %}
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    {% elif post.score == 4 %}
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    {% elif post.score == 3 %}
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    {% elif post.score == 2 %}
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    {% elif post.score == 1 %}
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    {% else%}
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    {% endif %}
+                                </span>    
+                            </div>
+                        </div>
+                        <div class="card-title bg-col post-thumbnail-title">
+                            <h6 class="card-text p-2">{{ post.title }}</h6>
+                        </div>
+                        </a>
+                        <!-- <p class="card-text text-muted h6">{{ post.created_on}}</p> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock content %}
