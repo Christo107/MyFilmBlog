@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container container-css shadow-lg my-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-sm-12">
+            <form method="post" action="{% url 'edit_actor' actor.id %}">
+                <div class="row justify-content-left mt-5">
+                    <div class="col col-md-6 col-sm-12 mt-5">
+                        <h2>Edit the Actor profile below</h2>
+                    </div>
+                </div>
+                {{ form | crispy }}
+                {% csrf_token %}
+                <div class="text-right my-5">
+                <a href="{% url 'actor_detail' actor.id %}"><button class="btn btn-dark rounded-0">Cancel</button></a>
+                <button type="submit" class="btn btn-outline-dark save-btn rounded-0">Save</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

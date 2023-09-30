@@ -21,7 +21,7 @@
                     <div class="col post-subtitle">
                         {% if user.is_superuser %}
                         <small>
-                            <a href="">Edit Actor Profile</a> |
+                            <a href="{% url 'edit_actor' actor.id %}">Edit Actor Profile</a> |
                             <a href="{% url 'delete_actor_confirm' actor.id %}" class="text-danger">Delete Actor Profile</a>
                         </small>
                         {% endif %}

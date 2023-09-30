@@ -332,3 +332,33 @@ def Delete_Actor(request, actor_id):
     actor.delete()
     messages.success(request, 'Actor profile deleted!')
     return redirect(reverse('home'))
+
+
+@login_required
+def Edit_Actor(request, actor_id):
+    """ Edit an actor profile on the website """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('home'))
+
+    actor = get_object_or_404(Actor, pk=actor_id)
+    if request.method == 'POST':
+        form = ActorForm(request.POST, request.FILES, instance=actor)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated actor profile!')
+            return redirect(reverse('actor_detail', args=[actor.id]))
+        else:
+            messages.error(request, 'Failed to update actor profile. Please \
+                                     ensure the form is valid.')
+    else:
+        form = ActorForm(instance=actor)
+        messages.info(request, f'You are editing {actor.name}')
+
+    template = 'edit_actor.html'
+    context = {
+        'form': form,
+        'actor': actor,
+    }
+
+    return render(request, template, context)
