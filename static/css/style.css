@@ -272,6 +272,10 @@ textarea {
     width:50%;
 }
 
+.dropdown-menu {
+    min-width: 12rem;
+}
+
 @media screen and (max-width: 767.98px) {
 
     .masthead-image:after {
