@@ -1,0 +1,40 @@
+{% extends "actor_detail.html" %}
+
+{% block extra_title %}| Delete Actor Profile?{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block confirm_delete %}
+<div class="overlay"></div>
+<div class="container my-5">
+    <div class="confirm_popup center shadow p-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <hr>
+                <h5 class="logo-font mb-4">Confirm Deletion Of Actor Profile</h5>            
+                <hr>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <p>Are you sure you want to delete the following actor profile?</p>
+                <h4 class="font-italic">{{ actor.name }}</h4>
+                <div class="text-right mt-5">                
+                    <a href="{% url 'actor_detail' actor.id %}" class="btn btn-dark rounded-0">Cancel</a>
+                    <a href="{% url 'delete_actor' actor.id %}" class="btn btn-danger rounded-0">Delete</a>                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock confirm_delete %}
+

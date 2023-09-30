@@ -303,3 +303,32 @@ def Add_Actor(request):
     }
 
     return render(request, template, context)
+
+
+def Delete_Actor_Confirm(request, actor_id):
+    """ View to confirm blog post deletion """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('home'))
+
+    queryset = Actor.objects
+    actor = get_object_or_404(queryset, pk=actor_id)
+
+    template = 'delete_actor_confirm.html'
+    context = {
+        'actor': actor,
+    }
+
+    return render(request, template, context)
+
+
+def Delete_Actor(request, actor_id):
+    """ Delete an actor profile """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('home'))
+
+    actor = get_object_or_404(Actor, pk=actor_id)
+    actor.delete()
+    messages.success(request, 'Actor profile deleted!')
+    return redirect(reverse('home'))
