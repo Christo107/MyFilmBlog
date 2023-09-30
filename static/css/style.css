@@ -118,7 +118,7 @@ body {
     background: #23BBBB;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
-    transform: skew(15deg);
+    transform: skew(8deg);
     z-index: 1;
 }
 
@@ -291,8 +291,7 @@ textarea {
     }
 
     .post-title {
-        margin-top: 5%;
-        margin-left: 5%;
+        margin: 5%;
     }    
 
 }

@@ -6,28 +6,51 @@
 <div class="masthead-tall">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <div>
+            <div class="col-md-8 masthead-text">
+                <!-- <div>
                 <img src="{{ actor.featured_image.url }}" class="d-block d-md-none actor-img-small m-4">
-                </div>
+                </div> -->
                 <!-- Actor name goes in these h1 tags -->
                 <h1 class="post-title">{{ actor.name }}</h1>
                 <p class="post-subtitle">Birthday: {{ actor.birthday }}</p>
-                <p class="masthead-text-content">Bio: {{ actor.bio }}</p>
+                <!-- <p class="masthead-text-content">Bio: {{ actor.bio }}</p> -->
                 <br>
                 <!-- <p class="post-subtitle">Reviews:</p> <ul class = "inline-list"> {% for post in posts %} <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li> {% endfor %} </ul> -->
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class=" d-md-block col-md-4 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in actor.featured_image.url %}
                 <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1687005276/CI%20-%20PP4%20-%20assets/pexels-pixabay-33129_wusex2.jpg" width="100%">
                 {% else %}
-                <img src=" {{ actor.featured_image.url }}" width="100%" class="actor_img" alt=" {{ actor.alt_tag }} ">
+                <img src=" {{ actor.featured_image.url }}" width="100%" class="cover" alt=" {{ actor.alt_tag }} ">
                 {% endif %}
             </div>
         </div>
     </div>
-<!-- </div> -->
+    <div class="container">
+        <div class="row">
+            <div class="col card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <!-- The post content goes inside the card-text. -->
+                    <!-- Use the | safe filter inside the template tags -->
+                    <p class="card-text ">
+                        {{ actor.bio | safe }}
+                    </p>
+                </div>
+            </div>
+        </div>      
+        <div class="row">
+            <div class="col">
+                {% if user.is_superuser %}
+                <small>
+                    <a href="">Edit Actor Profile</a> |
+                    <a href="" class="text-danger">Delete Actor Profile</a>
+                </small>
+                {% endif %}
+                <hr>
+            </div>
+        </div>
+    </div>
 
     <div class="container my-3">
         <h4>Reviews featuring {{ actor.name }}:</h4>

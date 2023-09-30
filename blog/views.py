@@ -22,8 +22,6 @@ class PostList(generic.ListView):
 
 class PostDetail(View):
 
-
-
     def get(self, request, slug,  *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -46,8 +44,6 @@ class PostDetail(View):
                 "actors": actors,
             }
         )
-
-
 
 # based on CI walkthrough blog project
 
@@ -134,6 +130,7 @@ class ActorDetail(View):
                 "actor": actor,
             },
         )
+
 
 def Add_BlogPost(request):
     """ Add a new blog post to the website """
