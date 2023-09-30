@@ -13,7 +13,16 @@
                 <!-- Actor name goes in these h1 tags -->
                 <h1 class="post-title">{{ actor.name }}</h1>
                 <p class="post-subtitle">Birthday: {{ actor.birthday }}</p>
-                <!-- <p class="masthead-text-content">Bio: {{ actor.bio }}</p> -->
+                <div class="row">
+                    <div class="col post-subtitle">
+                        {% if user.is_superuser %}
+                        <small>
+                            <a href="">Edit Actor Profile</a> |
+                            <a href="" class="text-danger">Delete Actor Profile</a>
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
                 <br>
                 <!-- <p class="post-subtitle">Reviews:</p> <ul class = "inline-list"> {% for post in posts %} <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li> {% endfor %} </ul> -->
             </div>
@@ -37,17 +46,6 @@
                         {{ actor.bio | safe }}
                     </p>
                 </div>
-            </div>
-        </div>      
-        <div class="row">
-            <div class="col">
-                {% if user.is_superuser %}
-                <small>
-                    <a href="">Edit Actor Profile</a> |
-                    <a href="" class="text-danger">Delete Actor Profile</a>
-                </small>
-                {% endif %}
-                <hr>
             </div>
         </div>
     </div>

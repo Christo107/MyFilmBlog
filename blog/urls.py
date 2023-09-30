@@ -2,7 +2,7 @@ from . import views
 from django.urls import path
 from .views import (Add_BlogPost, Delete_Blog_Post, Delete_Blog_Post_Confirm,
                     Edit_Blog_Post, Edit_Comment, Delete_Comment_Confirm,
-                    Delete_Comment, PostLike)
+                    Delete_Comment, PostLike, Add_Actor)
 
 # based on CI walkthrough blog project
 urlpatterns = [
@@ -23,4 +23,5 @@ urlpatterns = [
           name='delete_comment_confirm'),
      path('delete/<int:comment_id>/', views.Delete_Comment,
           name='delete_comment'),
+     path('actor/add/', views.Add_Actor, name='add_actor'),
 ]

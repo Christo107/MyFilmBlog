@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Post, Actor, Comment
-from .forms import CommentForm, BlogForm
+from .forms import CommentForm, BlogForm, ActorForm
 
 # based on CI walkthrough blog project
 
@@ -280,3 +280,26 @@ def Delete_Comment(request, comment_id):
     comment.delete()
     messages.success(request, 'Comment successfully deleted!')
     return redirect(reverse('post_detail', args=[slug]))
+
+
+@login_required
+def Add_Actor(request):
+    """ Add a new blog post to the website """
+    if request.method == 'POST':
+        form = ActorForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added actor profile!')
+            return redirect(reverse('add_actor'))
+        else:
+            messages.error(request, 'Failed to add actor. Please\
+                           ensure the form is valid.')
+    else:
+        form = ActorForm()
+
+    template = 'add_actor.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
