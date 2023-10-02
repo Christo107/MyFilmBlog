@@ -27,6 +27,7 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         actors = post.cast.all()
+        genre = post.genre.all()
         liked = False
 
         if post.likes.filter(id=self.request.user.id).exists():
@@ -42,6 +43,7 @@ class PostDetail(View):
                 "liked": liked,
                 "comment_form": CommentForm(),
                 "actors": actors,
+                "genre": genre,
             }
         )
 

@@ -17,7 +17,10 @@
                 <h1 class="post-title on-top">{{ post.title }}</h1>
                 <!-- Post cast goes in this span tags -->
                 <div class="post-subtitle on-top">
-                    <p>Cast:</p><ul class = "inline-list"> {% for actor in actors %} <li class="inline-list-item"> <a href="{% url 'actor_detail' actor.id %}" class="post-link">{{ actor.name }},</a></li> {% endfor %} </ul>
+                    <p>Cast:</p><ul class = "inline-list"> {% for actor in actors %} <li class="inline-list-item"> <a href="{% url 'actor_detail' actor.id %}" class="post-link">{{ actor.name }},&nbsp;</a></li> {% endfor %} </ul>
+                </div>
+                <div class="post-subtitle on-top">
+                    <p>Genre:</p><ul class = "inline-list"> {% for genre in genre %} <li class="inline-list-item post-link">{{ genre.friendly_name }},&nbsp;</a></li> {% endfor %} </ul>
                 </div>
                 <!-- Review star rating goes below -->
                 <div class="star-rating on-top">
