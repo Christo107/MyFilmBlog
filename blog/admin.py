@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Actor
+from .models import Post, Comment, Actor, Genre
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -30,3 +30,9 @@ class ActorAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'birthday')
     prepopulated_fields = {'slug': ('name',)}
+
+
+@admin.register(Genre)
+class GenreAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'friendly_name',)

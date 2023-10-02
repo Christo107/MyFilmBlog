@@ -23,6 +23,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
+    genre = models.ManyToManyField('Genre', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
@@ -79,3 +80,19 @@ class Actor(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Genre(models.Model):
+    # fields for genre table
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(
+        max_length=254,
+        null=True,
+        blank=True
+        )
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
