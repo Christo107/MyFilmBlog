@@ -5,17 +5,37 @@ from django.views.generic.edit import UpdateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import Post, Actor, Comment
+from .models import Post, Actor, Comment, Genre
 from .forms import CommentForm, BlogForm, ActorForm
 
 # based on CI walkthrough blog project
 
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
-    template_name = "index.html"
-    paginate_by = 6
+# class PostList(generic.ListView):
+#     model = Post
+#     queryset = Post.objects.filter(status=1).order_by("-created_on")
+#     template_name = "index.html"
+#     paginate_by = 6
+
+def PostList(request):
+
+    posts = Post.objects.filter(status=1).order_by("-created_on")
+    query = None
+    genres = None
+
+    if request.GET:
+        if 'genre' in request.GET:
+            genres = request.GET['genre'].split(',')
+            posts = posts.filter(genre__name__in=genres)
+            genres = Genre.objects.filter(name__in=genres)
+
+    context = {
+        'posts': posts,
+        'current_genres': genres,
+    }
+
+    return render(request, 'index.html', context)
+
 
 # based on CI walkthrough blog project
 

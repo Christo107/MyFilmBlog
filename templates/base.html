@@ -41,6 +41,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'actor_list' %}">Actors</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Search by Genre
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for genre in genres %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}?genre={{genre.name}}" class="dropdown-item">{{ genre.friendly_name }}</a>
+                            </li>
+                            {% endfor %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}?genre=action_and_adventure" class="dropdown-item">Action and Adventure</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}?genre=comedy" class="dropdown-item">Comedy</a>
+                            </li>
+                        </ul>
+                    </li>
                     {% if user.is_superuser %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +72,7 @@
                                 <a class="nav-link" href="{% url 'add_actor' %}">Add an Actor profile</a>
                             </li>
                         </ul>
-                      </li>
+                    </li>
                     {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item">

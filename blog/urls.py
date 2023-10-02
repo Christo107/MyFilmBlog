@@ -7,7 +7,7 @@ from .views import (Add_BlogPost, Delete_Blog_Post, Delete_Blog_Post_Confirm,
 
 # based on CI walkthrough blog project
 urlpatterns = [
-     path('', views.PostList.as_view(), name='home'),
+     path('', views.PostList, name='home'),
      path('actor_list/', views.ActorList.as_view(), name='actor_list'),
      path('actor/<int:id>/', views.ActorDetail.as_view(), name='actor_detail'),
      path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
