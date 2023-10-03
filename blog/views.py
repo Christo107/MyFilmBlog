@@ -17,6 +17,7 @@ from .forms import CommentForm, BlogForm, ActorForm
 #     template_name = "index.html"
 #     paginate_by = 6
 
+
 def PostList(request):
 
     posts = Post.objects.filter(status=1).order_by("-created_on")
@@ -32,13 +33,22 @@ def PostList(request):
     context = {
         'posts': posts,
         'current_genres': genres,
-        'genres': genres,
     }
 
     return render(request, 'index.html', context)
 
 
 # based on CI walkthrough blog project
+
+
+def Genre_list(request):
+    '''list of genres on website'''
+    genre_list = Genre.objects.all()
+    context = {
+        "genre_list": genre_list,
+    }
+
+    return context
 
 
 class PostDetail(View):

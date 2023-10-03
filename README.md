@@ -47,10 +47,13 @@ The live website on Github can be accessed at the following link: [View my Live 
 ### Existing Sections
 - #### **Header**
     - The header contains the name of the website along with a logo of a section of film strip.
-    - Alongside this on the left of the page, a link for Home, Actors, Register and Login are also present
+    - Alongside this on the left of the page, a link for Home, Actors, Search by Genre dropdown, Register and Login are also present
     - On the far-right, a tag-line description of what purpose the website serves is shown reading "My take on the latest moview release"
+    - For admin users, a hidden site admin dropdown appears where they can add a blog post and add an actor profile from the frontend rather than in the admin panel.
 
-![Header Image](./media/images/header.jpg)
+![Header Image](./media/images/navbar_user_desktop.png)
+
+![Header Admin Image](./media/images/navbar_admin_dropdown_desktop.png)
 
 - #### **Film Review List**
     - This section contains the main elements of the homepage, namely a grid of the film reviews currently published on the website.
@@ -67,6 +70,7 @@ The live website on Github can be accessed at the following link: [View my Live 
         - Cast
         - Star Rating
         - Author
+        - Genre
         - Date and Time of publication
         - Review text content
         - YouTube link to trailer
@@ -75,8 +79,9 @@ The live website on Github can be accessed at the following link: [View my Live 
         - Comment Form (for registered users only)
         - Comments (displayed oldest to newest)
 
-![Film Review Detail Image top](./media/images/film_review_detail_pt1.jpg)
-![Film Review Detail Image bottom](./media/images/film_review_detail_pt2.jpg)
+![Film Review Detail Image content](./media/images/post_detail_blogpost_desktop.png)
+![Film Review Detail Image comments](./media/images/post_detail_comments_unreguser_desktop.png)
+![Film Review Detail Image comments registered user](./media/images/post_detail_comments_reguser_desktop.png)
 
 - #### Register Page
 ![Register Page Image](./media/images/signup_page.jpg)

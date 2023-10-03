@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (Add_BlogPost, Delete_Blog_Post, Delete_Blog_Post_Confirm,
                     Edit_Blog_Post, Edit_Comment, Delete_Comment_Confirm,
                     Delete_Comment, PostLike, Add_Actor, Delete_Actor_Confirm,
-                    Delete_Actor, Edit_Actor, PostList)
+                    Delete_Actor, Edit_Actor, PostList, Genre_list)
 
 # based on CI walkthrough blog project
 urlpatterns = [

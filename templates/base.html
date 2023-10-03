@@ -46,17 +46,17 @@
                           Search by Genre
                         </a>
                         <ul class="dropdown-menu">
-                            {% for genre in genres %}
+                            {% for genre in Genre_list %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'home' %}?genre={{genre.name}}" class="dropdown-item">{{ genre.friendly_name }}</a>
                             </li>
                             {% endfor %}
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{% url 'home' %}?genre=action_and_adventure" class="dropdown-item">Action and Adventure</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'home' %}?genre=comedy" class="dropdown-item">Comedy</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                     {% if user.is_superuser %}
