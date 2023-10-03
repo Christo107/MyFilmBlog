@@ -32,6 +32,7 @@ def PostList(request):
     context = {
         'posts': posts,
         'current_genres': genres,
+        'genres': genres,
     }
 
     return render(request, 'index.html', context)
