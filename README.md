@@ -20,7 +20,8 @@ The live website on Github can be accessed at the following link: [View my Live 
     *  [Register Page](#register-page)
     *  [Login Page](#login-page)
     *  [Footer](#footer)
-    *  [Admin](#admin)   
+    *  [Admin](#admin)
+    *  [Database Diagram](#database-diagram)
 * [User Experience](#user-experience)
     *  [User Stories](#user-stories)
 * [Design](#design)
@@ -52,6 +53,7 @@ The live website on Github can be accessed at the following link: [View my Live 
     - For admin users, a hidden site admin dropdown appears where they can add a blog post and add an actor profile from the frontend rather than in the admin panel.
 
 ![Header Image](./media/images/navbar_user_desktop.png)
+![Header Search by Genre image](./media/images/navbar_searchbygenre_desktop.png)
 
 ![Header Admin Image](./media/images/navbar_admin_dropdown_desktop.png)
 
@@ -99,9 +101,6 @@ The live website on Github can be accessed at the following link: [View my Live 
 - #### Search Field
     - I would like to add a search function so that site users can easily find reviews of films they are interested in.
 
-- #### Actor Reviews
-    - Breakdown of reviews based on specific actors. This would show all the reviews on the website that contain a specific actor as part of the cast.
-
 - #### Social account Registration
     - Register an account with a user's social account for ease of signup and integration.
 
@@ -110,6 +109,11 @@ The live website on Github can be accessed at the following link: [View my Live 
 
 - #### Previous comments
     - Profile page information showing all previous commented reviews by a particular user.
+
+
+### Database Diagram
+
+![Database Diagram Image](./media/images/database_diagram.png)
 
 ## User Experience
 
@@ -134,14 +138,14 @@ The live website on Github can be accessed at the following link: [View my Live 
 - As a Site User / Admin I can view comments on an individual post so that I can read the replies to a post
 - As a Site User I can leave comments on a post so that I can engage with other users
 - As a Site User I can like or unlike a post so that I can interact with the content
+- As a site user I can filter the reviews so that I can view only specific reviews based on certain criteria
+- As a site user I can edit my comments so that I can fix mistakes or add additional content
 
 ##### Non-Delivered features
 - As a Site User I can login to my profile so that I can view all my previously created posts
 - As a site user I can bookmark a review so that I can revisit the post at a later date
-- As a site user I can filter the reviews so that I can view only specific reviews based on certain criteria
 - As a site user I can search for where the reviewed film is being shown in my local area so that I can see the film being reviewed and form my own opinion
 - As a site user I can register an account using my social media accounts so that I don't have to create separate login details for the website
-- As a site user I can edit my comments so that I can fix mistakes or add additional content
 - As a site user I can search for specific reviews so that I can quickly find a review of a film
 
 ## Design
@@ -299,3 +303,4 @@ The live link can be found here - https://myfilmblog.herokuapp.com/
 ## Acknowledgements
  - The CI students who peer reviewed my website and gave feedback
  - Josh on Tutor support who helped me overcome a late issue in my website
+ - Roman Rakic, Ulrike_5P and Martin on Tutor support who gave me invaluable help with issues I had on the project. Thanks so much.
