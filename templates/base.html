@@ -46,19 +46,15 @@
                           Search by Genre
                         </a>
                         <ul class="dropdown-menu">
-                            {% for genre in Genre_list %}
+                            <!-- iterates through genres on website and filters based on selection -->
+                            {% for genre in genre_list %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}?genre={{genre.name}}" class="dropdown-item">{{ genre.friendly_name }}</a>
+                                <a href="{% url 'home' %}?genre={{genre.name}}" class="dropdown-item">{{ genre.friendly_name }}</a>
                             </li>
                             {% endfor %}
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}?genre=action_and_adventure" class="dropdown-item">Action and Adventure</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}?genre=comedy" class="dropdown-item">Comedy</a>
-                            </li> -->
                         </ul>
                     </li>
+                    <!-- site admin dropdown on navbar for admin users only -->
                     {% if user.is_superuser %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,6 +70,7 @@
                         </ul>
                     </li>
                     {% endif %}
+                    <!-- account links on navbar for users -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
@@ -93,7 +90,7 @@
             </div>
         </div>
     </nav>
-
+<!-- container for messages on website -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
