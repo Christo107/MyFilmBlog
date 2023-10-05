@@ -31,3 +31,6 @@ urlpatterns = [
           name='delete_actor'),
      path('actor/edit/<int:actor_id>/', views.Edit_Actor, name='edit_actor'),
 ]
+
+handler404 = 'filmblog.views.handler404'
+handler500 = 'filmblog.views.handler500'
