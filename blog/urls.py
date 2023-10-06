@@ -31,4 +31,3 @@ urlpatterns = [
           name='delete_actor'),
      path('actor/edit/<int:actor_id>/', views.Edit_Actor, name='edit_actor'),
 ]
-

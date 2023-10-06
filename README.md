@@ -280,6 +280,8 @@ The live link can be found here - https://myfilmblog.herokuapp.com/
 ## Bugs
 ### Fixed Bugs
 - Actor_Detail page was not loading due to errors in the views and Url patterns code. This was fixed with the aid of Josh from Tutor Support.
+- Genres were not loading on post-detail page. 
+- Genre list was not loading on dropdown search by genre. Code was missing from Templates oon settings.py.
 
 ### Known Bugs
 - Responsiveness on Actor Detail card on smaller devices.
@@ -288,6 +290,7 @@ The live link can be found here - https://myfilmblog.herokuapp.com/
 
 ### Code
 - Main code based on Code Institute's walkthrough project "I think therefore I blog" with changes made to suit my project
+- Custom code added for custom models
 
 ### Content
 

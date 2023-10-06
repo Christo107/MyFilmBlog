@@ -24,5 +24,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 ]
 
-handler404 = 'boutique_ado.views.handler404'
-handler500 = 'boutique_ado.views.handler500'
+handler404 = 'filmblog.views.handler404'
+handler500 = 'filmblog.views.handler500'

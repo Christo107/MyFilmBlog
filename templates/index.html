@@ -4,12 +4,12 @@
 <!-- based on CI walkthrough blog project with alterations to include score rating -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-6 order-md-first">
+        <div class="col-12 order-md-first">
             <p class="text-muted mt-3 text-center text-md-left">
                 {% for c in current_genres %}
-                <a class="text-decoration-none" href="{% url 'home' %}?genre={{ c.name }}">
+                <a class="text-decoration-none post-link" href="{% url 'home' %}?genre={{ c.name }}">
                     {{ posts|length }} Posts found for
-                    <span class="mt-2 text-black rounded-0 border-0 post-link">{{ c.friendly_name }}</span>
+                    <span class="mt-2 text-black rounded-0 border-0"><strong>{{ c.friendly_name }}</strong></span>
                 </a>
                 {% endfor %}
             </p>
