@@ -6,23 +6,27 @@
         <div class="col"></div>
     </div>
 </div>
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1696616553/pngegg-min_jiuxh3.png"
-            alt="404 page image" class="mx-auto rounded" style="max-width:70%; max-height: 70%;">
-            <h1 class="display-4 logo-font text-black">
-                The page you are looking for isn't available
-            </h1>
-            <div class="my-5">
-                <h4>
-                    <a href="{% url 'home' %}" 
-                        class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
-                            E.T. go Home
-                    </a>
-                </h4>
-            </div>
-        </div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center align-items-center height-vh m-5">
+       <div class="col-lg-4 col-12">
+          <div class="col-md-12 text-center">
+             <img src="https://res.cloudinary.com/dscoft3v6/image/upload/v1696616553/pngegg-min_jiuxh3.png" width="75%">
+          </div>
+       </div>
+       <div class="col-lg-6 col-12 mt-5">
+          <div class="col-12 d-flex text-center flex-column justify-content-center align-items-center">
+             <h1 class="main-heading">Error 500</h1>
+             <h2>The page you are looking for isn't available.<br> E.T. says phone Home</h2>
+             <div class="text-center mt-4 mb-5">
+                    <h4>
+                        <a href="{% url 'home' %}" 
+                            class="btn btn-outline-dark save-btn rounded-0 py-3">
+                                Home
+                        </a>
+                    </h4>
+             </div>
+          </div>
+       </div>
     </div>
-</div>
+ </div>
 {% endblock %}
